@@ -6,14 +6,11 @@ cluster = MongoClient ("mongodb+srv://root:r00tUser@myfirstcluster.obg5p.mongodb
 db = cluster ["myTestDB"]
 collection = db ["myTestDB"]
 
-post4 = {"_id": "ID", "firstname": "Delroy", "lastname": "Brown"}
-post3 = {"_id": "OLDEST ID", "firstname": "Mary", "lastname": "Butt"}
-post6 = {"_id": "Goodbye, World!", "type": "WebDev"}
-post7 = {"_id": "Hair colour", "Colour": "Brown"}
+post3 = {"_id": "Countys", "Country Name": "England"}
 
-results = collection.insert_one(post7)
+results = collection.insert_one(post3)
 
 print("The data in the database is:") 
 cursor = collection.find()  
 for record in cursor:  
-    print(post7)
+    print(results)
