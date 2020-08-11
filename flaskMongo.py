@@ -6,6 +6,7 @@ MONGODB_URI = "mongodb+srv://root:r00tUser@myfirstcluster.obg5p.mongodb.net/myTe
 DBS_NAME = "myTestDB"
 COLLECTION_NAME = "myFirstMDB"
 
+
 def mongo_connect(url):
     try:
         conn = pymongo.MongoClient(url)
@@ -14,11 +15,12 @@ def mongo_connect(url):
     except pymongo.errors.ConnectionFailure as e:
         print("Could not connect to MongoDB: %s") % e
 
+
 conn = mongo_connect(MONGODB_URI)
-print(conn)
 
 coll = conn[DBS_NAME][COLLECTION_NAME]
-print(coll)
+
+documents = coll.find({"first": "douglas"})
 
 documents = list(coll.find())
 print(documents)
